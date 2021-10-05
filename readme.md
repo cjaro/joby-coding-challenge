@@ -51,4 +51,7 @@ Example response with only relevant data
 
 ### Joby Branding
 
-- Orange: #FF9700 Dark: #0F1621 Light: #EEE8DD
+- <span style="color:#FF9700">Orange: #FF9700</span> 
+- <span style="color:#0F1621">Dark: #0F1621</span> 
+- <span style="color:#EEE8DD">Light: #EEE8DD</span>
+
