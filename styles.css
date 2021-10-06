@@ -1,0 +1,36 @@
+html {
+    max-width: 100%;
+}
+
+#unsplash {
+    max-width: 1200px;
+}
+
+div#logo {
+    max-width: 300px;
+    height: 50px;
+}
+
+#joby-ec {
+    display: flex;
+    height: 100px;
+    width: 100%;
+}
+
+#joby-ec > div {
+    width: 33%;
+}
+
+#joby-orange{
+    background-color: #FF9700;
+}
+#joby-dark{
+    background-color: #0F1621;
+}
+#joby-light{
+    background-color: #EEE8DD;
+}
+
+#fetchedUnsplashSrc img {
+    max-width: 300px;
+}

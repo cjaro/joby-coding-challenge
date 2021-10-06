@@ -1,0 +1,19 @@
+{
+  "name": "joby-coding-challenge",
+  "version": "1.0.0",
+  "description": "Create an app that displays a vertical scrolling grid of images. When an image is tapped/clicked on, a higher resolution version of the image should be displayed. You can use whatever technology you're comfortable with. Please comment as if the person reading your code is familiar with the technology you're using.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjaro/joby-coding-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjaro/joby-coding-challenge/issues"
+  },
+  "homepage": "https://github.com/cjaro/joby-coding-challenge#readme"
+}
