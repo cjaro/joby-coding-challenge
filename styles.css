@@ -2,8 +2,25 @@ html {
     max-width: 100%;
 }
 
+body {
+    margin: 0 30px
+}
+
 #unsplash {
     max-width: 1200px;
+}
+
+#searchImages {
+    max-width: 250px;
+}
+
+#fetchedUnsplashSrc {
+    display: flex;
+    flex-direction: column;
+}
+
+#fetchedUnsplashSrc img {
+    max-width: 300px;
 }
 
 div#logo {
@@ -31,6 +48,3 @@ div#logo {
     background-color: #EEE8DD;
 }
 
-#fetchedUnsplashSrc img {
-    max-width: 300px;
-}

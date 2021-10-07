@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>FED Coding Challenge</title>
-    <script src="main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <script src="src/main.js"></script>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-<!--<div id="joby-ec">-->
+<!--<div id="joby-ec">
     <div id="joby-orange"></div>
     <div id="joby-dark"></div>
     <div id="joby-light"></div>
-</div>
+</div>-->
 <!--<div id="logo">-->
 <!--    <svg data-name="Layer 1" id="f48a5d32-6963-4b34-93e0-f9bcf5d41c69" viewBox="0 0 327.37 200">-->
 <!--        <path d="M321.93,8.58c-5.35-6.76-18.18-13.84-44.79-2.93-21.86,9-58.52,36.75-72.42,46.42C189.25,62.83,173.38,73,156,80.4c-14.72,6.29-29.9,10.28-46.08,9.57-1.33-.07-1.5-.21-2.08-1.43-18.29-39.49-29-57.72-51-73.71C30.14-4.58-3.65-6.49.32,23c1.05,7.82,14.54,47.55,68.17,71.29a115.32,115.32,0,0,0,33.2,8.6c1.3.11,1.23.47,1.6,1.29,32.24,79.43,57.41,87.36,77.71,88.61,36.64,2.26,81.75-46.9,91.89-58.5C305.4,97.07,318.58,66.48,322.48,54,331.94,23.74,325.14,12.64,321.93,8.58ZM44.59,47.78c-11.69-20.22-.48-31.86,13-19.43,6.49,6,14.41,15,24.14,31.42A254.89,254.89,0,0,1,96,87.85C82.6,84.26,61.62,77.27,44.59,47.78ZM270.94,84.43c-8.9,15-19.88,28.41-31.28,41.6-19.91,23-43.76,37.76-53.28,41.13-22.63,8-40.66,9.45-71.88-63.67,52.4,0,103.19-44.26,129.48-62.15,34.33-23.34,40.37-10,41.62-4.88C287,42.05,287.06,57.26,270.94,84.43Z"></path>-->
@@ -21,32 +23,14 @@
 <h1 style="color:#FF9700"><b>hello world!</b></h1>
 
 <div>
-    <h2 style="color:#0F1621">Unsplash Images</h2>
-    <div>
-        <p>What are we lookin' for? <b><span id="queryTerm"></span></b><span>!!!</span></p>
-
-    </div>
-    <form action="/">
-        <label for="searchImages">Change Query:</label>
-        <input id="searchImages" name="search images" type="text">
-        <input type="submit" value="Submit">
+    <p>We're lookin' for <b><span id="queryTerm"></span></b><span>!</span></p>
+    <form>
+        <div class="mb-3">
+        <label for="searchImages" class="form-label">Change Query:</label>
+        <input id="searchImages" class="form-control" name="search images" type="text">
+        <button type="submit" value="Submit" class="btn btn-primary">Search</button>
+        </div>
     </form>
-</div>
-<div>
-    <p>Breaking things down...</p>
-    <ul>
-        <li>Register for API keys.&nbsp;&check;</li>
-        <li>Make request in Postman.&nbsp;&check;</li>
-        <li>???????</li>
-        <li>Iterate through API response and grab img urls to display:</li>
-        <ul>
-            <li>For each in <code>data[results]</code> grab <code>url["raw"]</code></li>
-        </ul>
-    </ul>
-</div>
-<div>
-    <div id="fetchedUnsplashSrc"></div>
-    <div id="fetchedUnsplashCreds"></div>
 </div>
 <div>
     <p>Unsplash requirements:</p>
@@ -55,19 +39,12 @@
         <li>Trigger downloads: When a user in your application uses a photo, it triggers an event to the download
             endpoint
         </li>
-        <li>Your app does not use the Unsplash logo and is not named similarly to Unsplash: Your app must look visually
-            distinct from Unsplash and not use ‘Unsplash’ in the name (ex: Unsplasher)
-        </li>
-        <li>The application description and name included here are accurate: We should be able to know what you're
-            building just by reading the name and description of your application
-        </li>
-        <li>Attribute photographer and Unsplash (Add screenshots below): Photographer’s full name and Unsplash are
-            properly attributed and linked (ex: Photo by <a
-                    href="https://unsplash.com/@anniespratt?utm_source=your_app_name&amp;utm_medium=referral">Annie
-                Spratt</a> on <a
-                    href="https://unsplash.com?utm_source=your_app_name&amp;utm_medium=referral">Unsplash</a>)
-        </li>
     </ul>
+</div>
+<div>
+    <div id="fetchedUnsplashSrc">
+        <a id="unsplashImageLink"></a>
+    </div>
 </div>
 
 <div id="unsplash"></div>
