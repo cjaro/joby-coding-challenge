@@ -14,10 +14,20 @@ function constructPhotoCreditUrl(incomingJson) {
         on <a href="https://unsplash.com/?utm_source=kitten-coding-challenge&utm_medium=referral">Unsplash</a></p>`;
 }
 
-function sendQuery() {
-    searchQuery = document.getElementById("searchImages").value;
-    let queryUrl = constructQueryUrl(clientKey, searchQuery);
-    fetchUnsplash(queryUrl, requestOptions);
+function iterateResults(queryResults){
+    const targetElem = document.getElementById("fetchedUnsplashSrc");
+
+    for(let i = 0; i < queryResults.length; i++) {
+        targetElem.insertAdjacentHTML(
+            "beforeend",
+            `<div class="queryImage">
+                      <a href="${queryResults[i]['urls']['full']}">
+                          <img src="${queryResults[i]['urls']['raw']}" alt="${queryResults[i]['alt_description']}">
+                      </a>
+                      ${constructPhotoCreditUrl(queryResults[i])}
+                  </div>`
+        );
+    }
 }
 
 async function fetchUnsplash(url, options){
@@ -25,24 +35,17 @@ async function fetchUnsplash(url, options){
         .then(function(response) {
             if(response.ok) {
                 response.json().then(function(data) {
-                    let results = data["results"];
-                    const targetElem = document.getElementById("fetchedUnsplashSrc");
-                    document.getElementById("queryTerm").innerHTML = searchQuery;
-
-                    for(let i = 0; i < results.length; i++) {
-                        targetElem.insertAdjacentHTML("beforeend",
-                            `<div class="queryImage">
-                                <a href="${results[i]['urls']['full']}">
-                                    <img src="${results[i]['urls']['raw']}" alt="${results[i]['alt_description']}">
-                                </a>
-                                ${constructPhotoCreditUrl(results[i])}
-                            </div>`
-                        );
-                    }
+                    iterateResults(data["results"]);
                 });
             } else {
                 console.log("response failed");
             }
         })
         .catch(error => console.log('Error:', error));
+}
+
+function sendQuery() {
+    searchQuery = document.getElementById("searchImages").value;
+    let queryUrl = constructQueryUrl(clientKey, searchQuery);
+    fetchUnsplash(queryUrl, requestOptions);
 }
