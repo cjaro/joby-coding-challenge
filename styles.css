@@ -3,15 +3,21 @@ html {
 }
 
 body {
-    margin: 0 30px
+    margin: 0 90px
 }
 
-#unsplash {
-    max-width: 1200px;
+#searchField {
+    display: flex;
+    flex-direction: row;
 }
 
-#searchImages {
-    max-width: 250px;
+.queryImage {
+    padding: 15px;
+    border: 1px solid #000;
+}
+
+.queryImage p {
+    font-size: 16px;
 }
 
 #fetchedUnsplashSrc {
@@ -20,7 +26,7 @@ body {
 }
 
 #fetchedUnsplashSrc img {
-    max-width: 300px;
+    max-width: 100%;
 }
 
 div#logo {
@@ -41,9 +47,11 @@ div#logo {
 #joby-orange{
     background-color: #FF9700;
 }
+
 #joby-dark{
     background-color: #0F1621;
 }
+
 #joby-light{
     background-color: #EEE8DD;
 }
