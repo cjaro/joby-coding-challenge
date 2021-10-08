@@ -41,10 +41,8 @@ async function fetchUnsplash(url, options){
                     }
                 });
             } else {
-                console.log("response failed :/ uwu");
+                console.log("response failed");
             }
         })
         .catch(error => console.log('Error:', error));
 }
-
-sendQuery();
