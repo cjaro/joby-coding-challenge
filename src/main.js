@@ -1,10 +1,10 @@
 let clientKey = "NR1uPmeGJFvBROFnXHhupA30iwHO-Uu4cfRi9haU5PA";
-let searchQuery;
+let searchQuery = "helicopter";
 const requestOptions = { method: 'GET', redirect: 'follow' };
 
-function constructQueryUrl(clientKey, queryTerm) {
+function constructQueryUrl(clientKey, query) {
     const baseUrl = "https://api.unsplash.com/search/photos/?";
-    return `${baseUrl}client_id=${clientKey}&query=${queryTerm}`;
+    return `${baseUrl}client_id=${clientKey}&query=${query}`;
 }
 
 function constructPhotoCreditUrl(incomingJson) {
@@ -31,8 +31,16 @@ function iterateResults(queryResults){
 }
 
 async function fetchUnsplash(url, options){
+    console.log("we're looking for " + searchQuery);
+
     return fetch(url, options)
         .then(function(response) {
+            let getSpan = document.getElementById("queryTerm");
+            getSpan.innerHTML = searchQuery;
+
+            searchQuery = document.getElementById("searchImages").value;
+
+
             if(response.ok) {
                 response.json().then(function(data) {
                     iterateResults(data["results"]);
@@ -44,8 +52,7 @@ async function fetchUnsplash(url, options){
         .catch(error => console.log('Error:', error));
 }
 
-function sendQuery() {
-    searchQuery = document.getElementById("searchImages").value;
-    let queryUrl = constructQueryUrl(clientKey, searchQuery);
-    fetchUnsplash(queryUrl, requestOptions);
-}
+let queryUrl = constructQueryUrl(clientKey, searchQuery);
+
+fetchUnsplash(queryUrl, requestOptions);
+
